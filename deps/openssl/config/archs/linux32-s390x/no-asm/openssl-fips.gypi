@@ -297,7 +297,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux32-s390x': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'linker_script': '<(PRODUCT_DIR)/../../deps/openssl/config/archs/linux32-s390x/no-asm/providers/fips.ld'
   },

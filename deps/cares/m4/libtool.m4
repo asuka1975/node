@@ -1959,7 +1959,7 @@ else
   darwin*)
     # if libdl is installed we need to link against it
     AC_CHECK_LIB([dl], [dlopen],
-		[lt_cv_dlopen=dlopen lt_cv_dlopen_libs=-ldl],[
+		[lt_cv_dlopen=dlopen lt_cv_dlopen_libs=],[
     lt_cv_dlopen=dyld
     lt_cv_dlopen_libs=
     lt_cv_dlopen_self=yes
@@ -1982,7 +1982,7 @@ else
 	[AC_CHECK_FUNC([dlopen],
 	      [lt_cv_dlopen=dlopen],
 	  [AC_CHECK_LIB([dl], [dlopen],
-		[lt_cv_dlopen=dlopen lt_cv_dlopen_libs=-ldl],
+		[lt_cv_dlopen=dlopen lt_cv_dlopen_libs=],
 	    [AC_CHECK_LIB([svld], [dlopen],
 		  [lt_cv_dlopen=dlopen lt_cv_dlopen_libs=-lsvld],
 	      [AC_CHECK_LIB([dld], [dld_link],

@@ -975,7 +975,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-armv4': [
-      '-ldl -pthread -latomic',
+      ' -pthread -latomic',
     ],
   },
   'include_dirs': [

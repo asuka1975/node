@@ -296,7 +296,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux64-loongarch64': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'linker_script': '<(PRODUCT_DIR)/../../deps/openssl/config/archs/linux64-loongarch64/no-asm/providers/fips.ld'
   },

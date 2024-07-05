@@ -308,7 +308,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux64-mips64': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'linker_script': '<(PRODUCT_DIR)/../../deps/openssl/config/archs/linux64-mips64/asm_avx2/providers/fips.ld'
   },

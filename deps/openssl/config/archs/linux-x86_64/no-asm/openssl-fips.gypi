@@ -297,7 +297,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-x86_64': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'linker_script': '<(PRODUCT_DIR)/../../deps/openssl/config/archs/linux-x86_64/no-asm/providers/fips.ld'
   },

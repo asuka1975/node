@@ -22,7 +22,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-aarch64': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'openssl_cli_srcs_linux-aarch64': [
       'openssl/apps/lib/cmp_mock_srv.c',

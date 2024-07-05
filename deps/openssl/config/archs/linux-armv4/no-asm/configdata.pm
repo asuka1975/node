@@ -302,7 +302,7 @@ our %target = (
     "enable" => [
         "afalgeng"
     ],
-    "ex_libs" => "-ldl -pthread -latomic",
+    "ex_libs" => " -pthread -latomic",
     "includes" => [],
     "lflags" => "",
     "lib_cflags" => "",

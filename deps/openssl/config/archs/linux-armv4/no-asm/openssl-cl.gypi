@@ -12,7 +12,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-armv4': [
-      '-ldl -pthread -latomic',
+      ' -pthread -latomic',
     ],
     'openssl_cli_srcs_linux-armv4': [
       'openssl/apps/lib/cmp_mock_srv.c',

@@ -10,7 +10,7 @@
 /*
  * A minimal program to serve an SSL connection. It uses blocking. It use the
  * SSL_CONF API with the command line. cc -I../../include server-arg.c
- * -L../.. -lssl -lcrypto -ldl
+ * -L../.. -lssl -lcrypto 
  */
 
 #include <stdio.h>

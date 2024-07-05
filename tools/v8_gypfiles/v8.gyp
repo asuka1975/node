@@ -1358,7 +1358,6 @@
           ],
           'link_settings': {
             'libraries': [
-              '-ldl',
               '-lrt'
             ],
           },
@@ -1376,7 +1375,6 @@
             [ '"<(aix_variant_name)"=="AIX"', { # It is `AIX`
               'link_settings': {
                 'libraries': [
-                  '-ldl',
                   '-lrt'
                 ],
               },
@@ -1394,7 +1392,6 @@
             'target_conditions': [
               ['_toolset=="host" and host_os=="linux"', {
                 'libraries': [
-                  '-ldl'
                 ],
               }],
             ],

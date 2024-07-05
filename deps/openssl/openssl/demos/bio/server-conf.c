@@ -10,7 +10,7 @@
 /*
  * A minimal program to serve an SSL connection. It uses blocking. It uses
  * the SSL_CONF API with a configuration file. cc -I../../include saccept.c
- * -L../.. -lssl -lcrypto -ldl
+ * -L../.. -lssl -lcrypto 
  */
 
 #include <stdio.h>

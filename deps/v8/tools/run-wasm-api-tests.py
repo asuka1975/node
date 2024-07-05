@@ -108,7 +108,7 @@ class Runner(object):
     if c: return self._Error("compilation", lang, compiler, c)
     # Link.
     c = _Call([compiler["cc"], CFLAGS, compiler["ldflags"], obj_file,
-               "-o", exe_file, self.lib_file, "-ldl -pthread"])
+               "-o", exe_file, self.lib_file, " -pthread"])
     if c: return self._Error("linking", lang, compiler, c)
     # Execute.
     exe_file = "./%s-%s" % (self.name, lang)

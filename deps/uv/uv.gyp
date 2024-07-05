@@ -280,7 +280,7 @@
             '<@(uv_sources_linux)',
           ],
           'link_settings': {
-            'libraries': [ '-ldl', '-lrt' ],
+            'libraries': [ '-lrt' ],
           },
         }],
         [ 'OS=="android"', {
@@ -291,7 +291,7 @@
             '<@(uv_sources_android)',
           ],
           'link_settings': {
-            'libraries': [ '-ldl' ],
+            'libraries': [  ],
           },
         }],
         [ 'OS=="solaris"', {

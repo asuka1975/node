@@ -976,7 +976,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-x86_64': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
   },
   'include_dirs': [

@@ -17,7 +17,6 @@
     }, 'OS in "linux android"', {
       'link_settings': {
         'libraries': [
-          '-ldl',
         ],
       },
     }],

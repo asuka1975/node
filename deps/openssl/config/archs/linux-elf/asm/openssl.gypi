@@ -1009,7 +1009,7 @@
       '-Wall -O3 -fomit-frame-pointer',
     ],
     'openssl_ex_libs_linux-elf': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
   },
   'include_dirs': [

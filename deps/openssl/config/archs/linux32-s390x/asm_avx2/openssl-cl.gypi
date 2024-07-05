@@ -28,7 +28,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux32-s390x': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'openssl_cli_srcs_linux32-s390x': [
       'openssl/apps/lib/cmp_mock_srv.c',

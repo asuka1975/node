@@ -13,7 +13,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-ppc64le': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'openssl_cli_srcs_linux-ppc64le': [
       'openssl/apps/lib/cmp_mock_srv.c',

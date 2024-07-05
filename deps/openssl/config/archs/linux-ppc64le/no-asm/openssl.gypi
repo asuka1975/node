@@ -976,7 +976,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-ppc64le': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
   },
   'include_dirs': [

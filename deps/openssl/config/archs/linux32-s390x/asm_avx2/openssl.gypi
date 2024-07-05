@@ -1000,7 +1000,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux32-s390x': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
   },
   'include_dirs': [

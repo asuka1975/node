@@ -30,7 +30,7 @@
         'defines': ['ENABLE_VTUNE_JIT_INTERFACE',],
         'conditions': [
           ['OS != "win"', {
-            'libraries': ['-ldl',],
+            'libraries': [],
           }],
         ],
       },

@@ -322,7 +322,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-armv4': [
-      '-ldl -pthread -latomic',
+      ' -pthread -latomic',
     ],
     'linker_script': '<(PRODUCT_DIR)/../../deps/openssl/config/archs/linux-armv4/asm/providers/fips.ld'
   },

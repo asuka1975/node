@@ -72,7 +72,6 @@ cc_library(
     local_defines = [
         "U_COMMON_IMPLEMENTATION",
     ],
-    linkopts = ["-ldl"],
 )
 
 cc_library(

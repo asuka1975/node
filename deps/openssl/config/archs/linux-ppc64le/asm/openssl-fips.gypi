@@ -328,7 +328,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux-ppc64le': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
     'linker_script': '<(PRODUCT_DIR)/../../deps/openssl/config/archs/linux-ppc64le/asm/providers/fips.ld'
   },

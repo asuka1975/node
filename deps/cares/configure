@@ -14293,7 +14293,7 @@ then :
   printf %s "(cached) " >&6
 else case e in #(
   e) ac_check_lib_save_LIBS=$LIBS
-LIBS="-ldl  $LIBS"
+LIBS="  $LIBS"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
@@ -14331,7 +14331,7 @@ fi
 printf "%s\n" "$ac_cv_lib_dl_dlopen" >&6; }
 if test "x$ac_cv_lib_dl_dlopen" = xyes
 then :
-  lt_cv_dlopen=dlopen lt_cv_dlopen_libs=-ldl
+  lt_cv_dlopen=dlopen lt_cv_dlopen_libs=
 else case e in #(
   e)
     lt_cv_dlopen=dyld
@@ -14416,7 +14416,7 @@ then :
   printf %s "(cached) " >&6
 else case e in #(
   e) ac_check_lib_save_LIBS=$LIBS
-LIBS="-ldl  $LIBS"
+LIBS="  $LIBS"
 cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 /* end confdefs.h.  */
 
@@ -14454,7 +14454,7 @@ fi
 printf "%s\n" "$ac_cv_lib_dl_dlopen" >&6; }
 if test "x$ac_cv_lib_dl_dlopen" = xyes
 then :
-  lt_cv_dlopen=dlopen lt_cv_dlopen_libs=-ldl
+  lt_cv_dlopen=dlopen lt_cv_dlopen_libs=
 else case e in #(
   e) { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for dlopen in -lsvld" >&5
 printf %s "checking for dlopen in -lsvld... " >&6; }

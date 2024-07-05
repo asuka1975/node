@@ -783,7 +783,7 @@ EOF
       # We don't have any sunos target in Configurations/*.conf, so why here?
       [ '.*-.*-sunos4',           { target => "sunos" } ],
       [ '.*86.*-.*-bsdi4',        { target => "BSD-x86-elf",
-                                    lflags => [ '-ldl' ],
+                                    lflags => [ '' ],
                                     disable => [ 'sse2' ] } ],
       [ 'alpha.*-.*-.*bsd.*',     { target => "BSD-generic64",
                                     defines => [ 'L_ENDIAN' ] } ],

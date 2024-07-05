@@ -922,7 +922,6 @@
           ],
           'libraries': [
             '-lGL',
-            '-ldl',
           ],
           'sources': [
             'tools/tile_render_bench/tile_render_bench.cc',
@@ -943,7 +942,6 @@
           ],
           'link_settings': {
             'libraries': [
-              '-ldl',
               '-lX11',
               '-lXrender',
               '-lXext',

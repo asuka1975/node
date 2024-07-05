@@ -13,7 +13,7 @@
       '-Wall -O3 -fomit-frame-pointer',
     ],
     'openssl_ex_libs_solaris-x86-gcc': [
-      '-lsocket -lnsl -ldl -pthread',
+      '-lsocket -lnsl  -pthread',
     ],
     'openssl_cli_srcs_solaris-x86-gcc': [
       'openssl/apps/lib/cmp_mock_srv.c',

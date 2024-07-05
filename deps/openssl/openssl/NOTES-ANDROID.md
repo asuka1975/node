@@ -79,7 +79,7 @@ Notes for Android platforms
  Even though build output targets alien system, it's possible to execute
  test suite on Linux system by employing qemu-user. The trick is static
  linking. Pass -static to Configure, then edit generated Makefile and
- remove occurrences of -ldl and -pie flags. You would also need to pick
+ remove occurrences of  and -pie flags. You would also need to pick
  API version that comes with usable static libraries, 42/2=21 used to
  work. Once built, you should be able to
 

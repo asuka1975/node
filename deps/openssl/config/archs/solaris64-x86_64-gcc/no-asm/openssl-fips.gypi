@@ -297,7 +297,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_solaris64-x86_64-gcc': [
-      '-lsocket -lnsl -ldl -pthread',
+      '-lsocket -lnsl  -pthread',
     ],
     'linker_script': ''
   },

@@ -14,7 +14,7 @@
  * host is the interface IP to use.  If any interface, use *:port
  * The default it *:4433
  *
- * cc -I../../include saccept.c -L../.. -lssl -lcrypto -ldl
+ * cc -I../../include saccept.c -L../.. -lssl -lcrypto 
  */
 
 #include <stdio.h>

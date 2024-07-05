@@ -977,7 +977,7 @@
       '-Wall -O3',
     ],
     'openssl_ex_libs_linux64-s390x': [
-      '-ldl -pthread',
+      ' -pthread',
     ],
   },
   'include_dirs': [
