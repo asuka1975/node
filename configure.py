@@ -2301,4 +2301,8 @@ run_gyp(gyp_args)
 info('configure completed successfully')
 
 for k, v in output.items():
-  print(f"{k}: {v}")
+  if type(v) is dict:
+    for k1, v1 in v.items():
+      print(f"  {k1}: {v1}")
+  else:
+    print(f"{k}: {v}")
