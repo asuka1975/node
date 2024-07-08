@@ -642,7 +642,7 @@ def gyp_main(args):
             "root_targets": options.root_targets,
             "target_arch": cmdline_default_variables.get("target_arch", ""),
         }
-        for k, v in params:
+        for k, v in params.items():
             print(f"{k}: {v}")
 
         # Start with the default variables from the command line.
