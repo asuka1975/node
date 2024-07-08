@@ -2299,10 +2299,3 @@ if warn.warned and not options.verbose:
 print_verbose("running: \n    " + " ".join(['python', 'tools/gyp_node.py'] + gyp_args))
 run_gyp(gyp_args)
 info('configure completed successfully')
-
-for k, v in output.items():
-  if type(v) is dict:
-    for k1, v1 in v.items():
-      print(f"  {k1}: {v1}")
-  else:
-    print(f"{k}: {v}")
