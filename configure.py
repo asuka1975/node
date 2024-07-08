@@ -1619,6 +1619,7 @@ def configure_library(lib, output, pkgname=None):
       output['libraries'] += default_libs
     elif pkg_libs:
       output['libraries'] += pkg_libs.split()
+  print(output['libraries'])
 
 
 def configure_v8(o):
