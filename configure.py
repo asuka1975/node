@@ -1592,9 +1592,6 @@ def configure_library(lib, output, pkgname=None):
 
   if getattr(options, shared_lib):
     (pkg_libs, pkg_cflags, pkg_libpath, _) = pkg_config(pkgname or lib)
-    print(lib)
-    print(pkg_libs)
-    print(pkg_cflags)
 
     if options.__dict__[shared_lib + '_includes']:
       output['include_dirs'] += [options.__dict__[shared_lib + '_includes']]
@@ -2191,6 +2188,8 @@ configure_intl(output)
 configure_static(output)
 configure_inspector(output)
 configure_section_file(output)
+
+print(output["libraries"])
 
 # configure shareable builtins
 output['variables']['node_builtin_shareable_builtins'] = []
