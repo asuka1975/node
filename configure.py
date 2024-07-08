@@ -21,8 +21,10 @@ original_argv = sys.argv[1:]
 
 # gcc and g++ as defaults matches what GYP's Makefile generator does,
 # except on OS X.
-CC = os.environ.get('CC', 'cc' if sys.platform == 'darwin' else 'gcc')
-CXX = os.environ.get('CXX', 'c++' if sys.platform == 'darwin' else 'g++')
+def gnu_unavailable():
+  return sys.platform == 'darwin' or sys.platform.startswith("openbsd")
+CC = os.environ.get('CC', 'cc' if gnu_unavailable() else 'gcc')
+CXX = os.environ.get('CXX', 'c++' if gnu_unavailable() else 'g++')
 
 tools_path = Path('tools')
 
