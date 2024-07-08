@@ -2189,8 +2189,6 @@ configure_static(output)
 configure_inspector(output)
 configure_section_file(output)
 
-print(output["libraries"])
-
 # configure shareable builtins
 output['variables']['node_builtin_shareable_builtins'] = []
 for builtin, value in shareable_builtins.items():
@@ -2301,3 +2299,6 @@ if warn.warned and not options.verbose:
 print_verbose("running: \n    " + " ".join(['python', 'tools/gyp_node.py'] + gyp_args))
 run_gyp(gyp_args)
 info('configure completed successfully')
+
+for k, v in output.items():
+  print(f"{k}: {v}")
