@@ -1592,6 +1592,9 @@ def configure_library(lib, output, pkgname=None):
 
   if getattr(options, shared_lib):
     (pkg_libs, pkg_cflags, pkg_libpath, _) = pkg_config(pkgname or lib)
+    print(lib)
+    print(pkg_libs)
+    print(pkg_cflags)
 
     if options.__dict__[shared_lib + '_includes']:
       output['include_dirs'] += [options.__dict__[shared_lib + '_includes']]
@@ -1619,7 +1622,6 @@ def configure_library(lib, output, pkgname=None):
       output['libraries'] += default_libs
     elif pkg_libs:
       output['libraries'] += pkg_libs.split()
-  print(output['libraries'])
 
 
 def configure_v8(o):
