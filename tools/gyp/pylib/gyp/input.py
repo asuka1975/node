@@ -1457,10 +1457,10 @@ def BuildTargetsDict(data):
             target_name = gyp.common.QualifiedTarget(
                 build_file, target["target_name"], target["toolset"]
             )
+            print(target_name)
             if target_name in targets:
                 raise GypError("Duplicate target definitions for " + target_name)
             targets[target_name] = target
-            print(target)
 
     return targets
 
