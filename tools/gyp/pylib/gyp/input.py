@@ -1437,6 +1437,16 @@ def ProcessVariablesAndConditionsInList(the_list, phase, variables, build_file):
             )
         index = index + 1
 
+def inspect_recursive(data, indent=0):
+    if type(data) is dict:
+        for k, v in data.item():
+            print(f"{' ' * indent}{k}: {inspect_recursive(v)}")
+    elif type(data) is list:
+        for v in data:
+            print(f"{' ' * indent}item {inspect_recursive(v)}")
+    else:
+        print(f"{' ' * indent}{data}")
+
 
 def BuildTargetsDict(data):
     """Builds a dict mapping fully-qualified target names to their target dicts.
@@ -1452,11 +1462,9 @@ def BuildTargetsDict(data):
   """
 
     targets = {}
+    inspect_recursive(data)
     for build_file in data["target_build_files"]:
         for target in data[build_file].get("targets", []):
-            print(build_file)
-            for k, v in target.items():
-                print(f"  {k}: {v}")
             target_name = gyp.common.QualifiedTarget(
                 build_file, target["target_name"], target["toolset"]
             )
