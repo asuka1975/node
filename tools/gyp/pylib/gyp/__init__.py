@@ -656,10 +656,12 @@ def gyp_main(args):
             options.check,
             options.circular_check,
         )
-        print(generator)
-        print(flat_list)
-        print(targets)
-        print(data)
+        print(build_files)
+        print(format)
+        print(cmdline_default_variables)
+        print(includes)
+        print(options)
+        print(params)
 
         # TODO(mark): Pass |data| for now because the generator needs a list of
         # build files that came in.  In the future, maybe it should just accept
