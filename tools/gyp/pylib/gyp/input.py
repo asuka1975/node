@@ -1439,7 +1439,7 @@ def ProcessVariablesAndConditionsInList(the_list, phase, variables, build_file):
 
 def inspect_recursive(data, indent=0):
     if type(data) is dict:
-        for k, v in data.item():
+        for k, v in data.items():
             print(f"{' ' * indent}{k}: {inspect_recursive(v)}")
     elif type(data) is list:
         for v in data:
