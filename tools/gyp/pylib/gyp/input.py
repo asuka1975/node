@@ -1464,7 +1464,11 @@ def BuildTargetsDict(data):
   """
 
     targets = {}
+    print("******")
     inspect_recursive(data["target_build_files"])
+    print("******")
+    print(data["target_build_files"])
+    print("******")
     for build_file in data["target_build_files"]:
         for target in data[build_file].get("targets", []):
             target_name = gyp.common.QualifiedTarget(
