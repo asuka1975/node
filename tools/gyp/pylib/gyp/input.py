@@ -1453,6 +1453,7 @@ def BuildTargetsDict(data):
 
     targets = {}
     for build_file in data["target_build_files"]:
+        print(build_file)
         for target in data[build_file].get("targets", []):
             target_name = gyp.common.QualifiedTarget(
                 build_file, target["target_name"], target["toolset"]
@@ -2990,7 +2991,6 @@ def Load(
             except Exception as e:
                 gyp.common.ExceptionAppend(e, "while trying to load %s" % build_file)
                 raise
-    print(f"build_files: {build_files}")
 
     # Build a dict to access each target's subdict by qualified name.
     targets = BuildTargetsDict(data)
