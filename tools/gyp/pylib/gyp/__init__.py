@@ -84,6 +84,8 @@ def Load(
 
     # Format can be a custom python file, or by default the name of a module
     # within gyp.generator.
+    print("******format***********")
+    print(format)
     if format.endswith(".py"):
         generator_name = os.path.splitext(format)[0]
         path, generator_name = os.path.split(generator_name)
@@ -656,12 +658,6 @@ def gyp_main(args):
             options.check,
             options.circular_check,
         )
-        print(build_files)
-        print(format)
-        print(cmdline_default_variables)
-        print(includes)
-        print(options)
-        print(params)
 
         # TODO(mark): Pass |data| for now because the generator needs a list of
         # build files that came in.  In the future, maybe it should just accept
