@@ -1452,9 +1452,11 @@ def BuildTargetsDict(data):
   """
 
     targets = {}
-    print(data)
     for build_file in data["target_build_files"]:
         for target in data[build_file].get("targets", []):
+            print(build_file)
+            for k, v in target.items():
+                print(f"  {k}: {v}")
             target_name = gyp.common.QualifiedTarget(
                 build_file, target["target_name"], target["toolset"]
             )
