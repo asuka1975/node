@@ -40,18 +40,6 @@ def run_gyp(args):
 
   args.append('-Dcomponent=static_library')
   args.append('-Dlibrary=static_library')
-
-  for arg in args:
-    if type(arg) is dict:
-      for k, v in arg.items():
-        if type(v) is dict:
-          print(k)
-          for k1, v1 in v.items():
-            print(f"  {k1}: {v1}")
-        else:
-          print(f"{k}: {v}")
-    else:
-      print(arg)
  
   rc = gyp.main(args)
   if rc != 0:

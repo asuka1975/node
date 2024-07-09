@@ -481,6 +481,9 @@ def gyp_main(args):
         return 0
     build_files = build_files_arg
 
+    print(options)
+
+
     # Set up the configuration directory (defaults to ~/.gyp)
     if not options.config_dir:
         home = None
