@@ -2296,13 +2296,6 @@ gyp_args += [arg for arg in args if not str.isspace(arg)]
 if warn.warned and not options.verbose:
   warn('warnings were emitted in the configure phase')
 
-for arg in gyp_args:
-  if type(arg) is dict:
-    for k, v in arg.items():
-      print(f"  {k}: {v}")
-  else:
-    print(arg)
-
 print_verbose("running: \n    " + " ".join(['python', 'tools/gyp_node.py'] + gyp_args))
 run_gyp(gyp_args)
 info('configure completed successfully')
