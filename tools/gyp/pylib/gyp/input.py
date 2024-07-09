@@ -1465,6 +1465,7 @@ def BuildTargetsDict(data):
 
     targets = {}
     for build_file in data["target_build_files"]:
+        print(f"***{build_file}")
         inspect_recursive(data[build_file].get("targets", []))
     for build_file in data["target_build_files"]:
         for target in data[build_file].get("targets", []):
