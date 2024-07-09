@@ -228,6 +228,9 @@ def LoadOneBuildFile(build_file_path, data, aux_data, includes, is_target, check
         build_file_contents = open(build_file_path, encoding="utf-8").read()
     else:
         raise GypError(f"{build_file_path} not found (cwd: {os.getcwd()})")
+    print("***")
+    print(build_file_path)
+    print(build_file_contents)
 
     build_file_data = None
     try:
@@ -400,8 +403,6 @@ def LoadTargetBuildFile(
     build_file_data = LoadOneBuildFile(
         build_file_path, data, aux_data, includes, True, check
     )
-    print("***")
-    print(depth)
 
     # Store DEPTH for later use in generators.
     build_file_data["_DEPTH"] = depth
