@@ -400,6 +400,8 @@ def LoadTargetBuildFile(
     build_file_data = LoadOneBuildFile(
         build_file_path, data, aux_data, includes, True, check
     )
+    print("***")
+    print(build_file_data)
 
     # Store DEPTH for later use in generators.
     build_file_data["_DEPTH"] = depth
