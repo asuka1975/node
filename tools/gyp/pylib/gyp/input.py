@@ -1453,7 +1453,6 @@ def BuildTargetsDict(data):
 
     targets = {}
     for build_file in data["target_build_files"]:
-        print(build_file)
         for target in data[build_file].get("targets", []):
             target_name = gyp.common.QualifiedTarget(
                 build_file, target["target_name"], target["toolset"]
@@ -1461,6 +1460,7 @@ def BuildTargetsDict(data):
             if target_name in targets:
                 raise GypError("Duplicate target definitions for " + target_name)
             targets[target_name] = target
+            print(target)
 
     return targets
 
