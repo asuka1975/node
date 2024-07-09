@@ -2990,9 +2990,11 @@ def Load(
             except Exception as e:
                 gyp.common.ExceptionAppend(e, "while trying to load %s" % build_file)
                 raise
+    print(f"build_files: {build_files}")
 
     # Build a dict to access each target's subdict by qualified name.
     targets = BuildTargetsDict(data)
+    print(f"targets: {targets}")
 
     # Fully qualify all dependency links.
     QualifyDependencies(targets)

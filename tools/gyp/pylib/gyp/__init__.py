@@ -165,15 +165,6 @@ def Load(
         params["parallel"],
         params["root_targets"],
     )
-    print(build_files)
-    print(default_variables)
-    print(includes[:])
-    print(depth)
-    print(generator_input_info)
-    print(check)
-    print(circular_check)
-    print(params["parallel"])
-    print(params["root_targets"])
     return [generator] + result
 
 
