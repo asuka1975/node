@@ -1464,7 +1464,7 @@ def BuildTargetsDict(data):
   """
 
     targets = {}
-    inspect_recursive(data)
+    inspect_recursive(data["target_build_files"])
     for build_file in data["target_build_files"]:
         for target in data[build_file].get("targets", []):
             target_name = gyp.common.QualifiedTarget(
