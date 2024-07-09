@@ -84,8 +84,6 @@ def Load(
 
     # Format can be a custom python file, or by default the name of a module
     # within gyp.generator.
-    print("******format***********")
-    print(format)
     if format.endswith(".py"):
         generator_name = os.path.splitext(format)[0]
         path, generator_name = os.path.split(generator_name)
@@ -167,6 +165,7 @@ def Load(
         params["parallel"],
         params["root_targets"],
     )
+    print(result)
     return [generator] + result
 
 
