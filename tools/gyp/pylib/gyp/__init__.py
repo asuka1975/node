@@ -481,9 +481,6 @@ def gyp_main(args):
         return 0
     build_files = build_files_arg
 
-    print(options)
-
-
     # Set up the configuration directory (defaults to ~/.gyp)
     if not options.config_dir:
         home = None
@@ -659,6 +656,10 @@ def gyp_main(args):
             options.check,
             options.circular_check,
         )
+        print(generator)
+        print(flat_list)
+        print(targets)
+        print(data)
 
         # TODO(mark): Pass |data| for now because the generator needs a list of
         # build files that came in.  In the future, maybe it should just accept
