@@ -23,7 +23,7 @@
     }, 'target_arch=="ia32"', {
       # noasm linux-elf for other ia32 platforms
       'includes': ['config/archs/linux-elf/asm/openssl-cl.gypi'],
-    }, 'target_arch=="x64" and OS=="freebsd"', {
+    }, 'target_arch=="x64" and OS in ("freebsd", "openbsd")', {
       'includes': ['config/archs/BSD-x86_64/asm/openssl-cl.gypi'],
     }, 'target_arch=="x64" and OS=="mac"', {
       'includes': ['config/archs/darwin64-x86_64-cc/asm/openssl-cl.gypi'],
