@@ -2994,7 +2994,6 @@ def Load(
 
     # Build a dict to access each target's subdict by qualified name.
     targets = BuildTargetsDict(data)
-    print(f"targets: {targets}")
 
     # Fully qualify all dependency links.
     QualifyDependencies(targets)
