@@ -25,8 +25,5 @@
     ['enable_lto=="true"', {
       'ldflags': [ '-fno-lto' ],
     }],
-    ['OS=="openbsd"', {
-      'libraries!': [ '-ldl' ]
-    }],
   ],
 }
