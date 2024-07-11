@@ -87,23 +87,12 @@ void engine_load_devcrypto_int(void);
 #endif
 
 static int clean_devcrypto_session(session_op_t *sess) {
-#if defined(__OpenBSD__)
-    u_int64_t sid = sess->crp_sid;
-    crypto_freereq(sess);
-    if(crypto_freesession(sid)) {
-        ERR_raise_data(ERR_LIB_SYS, errno, "calling ioctl()");
-        return 0;
-    }
-    memset(sess, 0, sizeof(*sess))
-    return 1;
-#else
     if (ioctl(cfd, CIOCFSESSION, &sess->ses) < 0) {
         ERR_raise_data(ERR_LIB_SYS, errno, "calling ioctl()");
         return 0;
     }
     memset(sess, 0, sizeof(*sess));
     return 1;
-#endif
 }
 
 /******************************************************************************
@@ -117,11 +106,7 @@ static int clean_devcrypto_session(session_op_t *sess) {
  *****/
 
 struct cipher_ctx {
-#if defined(__OpenBSD__)
-    session_op_t* psess;
-#else
     session_op_t sess;
-#endif
     int op;                      /* COP_ENCRYPT or COP_DECRYPT */
     unsigned long mode;          /* EVP_CIPH_*_MODE */
 
@@ -228,17 +213,6 @@ static int cipher_init(EVP_CIPHER_CTX *ctx, const unsigned char *key,
         get_cipher_data(EVP_CIPHER_CTX_get_nid(ctx));
     int ret;
 
-#if defined(__OpenBSD__)
-    if (cipher_ctx->psess->crp_sid != 0 &&
-        clean_devcrypto_session(cipher_ctx->psess) == 0)
-        return 0;
-
-    cipher_ctx->psess = crypto_getreq(cipher_d->nid);
-    if (cipher_ctx->psess == NULL) {
-        ERR_raise_data(ERR_LIB_SYS, errno, "calling ioctl()");
-        return 0;
-    }
-#else
     /* cleanup a previous session */
     if (cipher_ctx->sess.ses != 0 &&
         clean_devcrypto_session(&cipher_ctx->sess) == 0)
@@ -257,7 +231,6 @@ static int cipher_init(EVP_CIPHER_CTX *ctx, const unsigned char *key,
     ret = ioctl(cfd, CIOCGSESSION2, &cipher_ctx->sess);
 #else
     ret = ioctl(cfd, CIOCGSESSION, &cipher_ctx->sess);
-#endif
 #endif
     if (ret < 0) {
         ERR_raise_data(ERR_LIB_SYS, errno, "calling ioctl()");
