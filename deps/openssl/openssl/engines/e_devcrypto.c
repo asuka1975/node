@@ -30,7 +30,7 @@
 
 #if defined(__OPENBSD__)
 
-aa
+
 
 #else
 
