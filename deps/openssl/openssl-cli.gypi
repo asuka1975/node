@@ -20,6 +20,12 @@
           '-ldl',
         ],
       },
+    }, 'OS=="openbsd"', {
+      'defines': [
+        'XOPENSSL_NO_DES',
+        'XOPENSSL_NO_RC4',
+        'XOPENSSL_NO_CAMELLIA',
+      ],
     }],
     # Avoid excessive LTO
     ['enable_lto=="true"', {

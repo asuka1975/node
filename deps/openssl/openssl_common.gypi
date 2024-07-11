@@ -58,12 +58,6 @@
         'ENGINESDIR="/dev/null"',
         '__EXTENSIONS__'
       ],
-    }, 'OS=="openbsd"', {
-      'defines': [
-        'OPENSSL_NO_DES=1',
-        'OPENSSL_NO_RC4=1',
-        'OPENSSL_NO_CAMELLIA',
-      ],
     }, {
       # linux and others
       'cflags': ['-Wno-missing-field-initializers',],
