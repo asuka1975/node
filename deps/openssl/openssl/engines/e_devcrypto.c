@@ -28,10 +28,6 @@
 
 /* #define ENGINE_DEVCRYPTO_DEBUG */
 
-#if defined(__OpenBSD__)
-
-
-#else
 
 #if CRYPTO_ALGORITHM_MIN < CRYPTO_ALGORITHM_MAX
 # define CHECK_BSD_STYLE_MACROS
@@ -39,11 +35,13 @@
 
 #define engine_devcrypto_id "devcrypto"
 
+#if defined (__OpenBSD__)
+typedef struct cryptop session_op_t
 /*
  * Use session2_op on FreeBSD which permits requesting specific
  * drivers or classes of drivers at session creation time.
  */
-#ifdef CIOCGSESSION2
+#elif CIOCGSESSION2
 typedef struct session2_op session_op_t;
 #else
 typedef struct session_op session_op_t;
@@ -1383,7 +1381,5 @@ static int bind_helper(ENGINE *e, const char *id)
 
 IMPLEMENT_DYNAMIC_CHECK_FN()
 IMPLEMENT_DYNAMIC_BIND_FN(bind_helper)
-
-#endif
 
 #endif
