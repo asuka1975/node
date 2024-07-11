@@ -28,7 +28,7 @@
 
 /* #define ENGINE_DEVCRYPTO_DEBUG */
 
-#if defined(__OPENBSD__)
+#ifdef __OPENBSD__
 
 
 
