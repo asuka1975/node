@@ -28,12 +28,6 @@
 
 /* #define ENGINE_DEVCRYPTO_DEBUG */
 
-#ifdef __OPENBSD__
-
-
-
-#else
-
 #if CRYPTO_ALGORITHM_MIN < CRYPTO_ALGORITHM_MAX
 # define CHECK_BSD_STYLE_MACROS
 #endif
@@ -1384,7 +1378,5 @@ static int bind_helper(ENGINE *e, const char *id)
 
 IMPLEMENT_DYNAMIC_CHECK_FN()
 IMPLEMENT_DYNAMIC_BIND_FN(bind_helper)
-
-#endif
 
 #endif
