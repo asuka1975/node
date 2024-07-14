@@ -95,7 +95,7 @@ extern "C" void* __libc_stack_end;
 #endif
 
 #if defined(__OpenBSD__)
-#define pthread_getattr_op pthread_attr_get
+#define pthread_getattr_np pthread_attr_get_np
 #endif
 
 namespace v8 {
