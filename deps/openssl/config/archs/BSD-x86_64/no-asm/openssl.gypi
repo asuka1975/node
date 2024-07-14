@@ -779,7 +779,6 @@
       'openssl/crypto/x509/x_x509.c',
       'openssl/crypto/x509/x_x509a.c',
       'openssl/engines/e_capi.c',
-      'openssl/engines/e_devcrypto.c',
       'openssl/engines/e_padlock.c',
       'openssl/providers/baseprov.c',
       'openssl/providers/defltprov.c',
@@ -964,6 +963,9 @@
       './config/archs/BSD-x86_64/no-asm/providers/legacy.ld',
       './config/archs/BSD-x86_64/no-asm/providers/fips.ld',
     ],
+    'openssl_sources_freebsd-x86_64': [
+      'openssl/engines/e_devcrypto.c',
+    ],
     'openssl_defines_BSD-x86_64': [
       'NDEBUG',
       'L_ENDIAN',
@@ -994,4 +996,12 @@
     'include_dirs': ['./include', '.'],
     'defines': ['<@(openssl_defines_BSD-x86_64)'],
   },
+  'conditions': [
+      ['OS==openbsd', {
+        'sources': ['<@(openssl_sources)', '<@(openssl_sources_BSD-x86_64)'],
+      }, {
+        'sources': ['<@(openssl_sources)', '<@(openssl_sources_BSD-x86_64)', '<@(openssl_sources_freebsd-x86_64)'],
+      }],
+
+  ]
 }
