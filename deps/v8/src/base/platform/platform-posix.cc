@@ -94,6 +94,10 @@ extern int madvise(caddr_t, size_t, int);
 extern "C" void* __libc_stack_end;
 #endif
 
+#if defined(__OpenBSD__)
+#define pthread_getattr_op pthread_attr_get
+#endif
+
 namespace v8 {
 namespace base {
 
