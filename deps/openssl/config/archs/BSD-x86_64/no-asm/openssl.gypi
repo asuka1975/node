@@ -997,7 +997,7 @@
     'defines': ['<@(openssl_defines_BSD-x86_64)'],
   },
   'conditions': [
-      ['OS==openbsd', {
+      ['OS=="openbsd"', {
         'sources': ['<@(openssl_sources)', '<@(openssl_sources_BSD-x86_64)'],
       }, {
         'sources': ['<@(openssl_sources)', '<@(openssl_sources_BSD-x86_64)', '<@(openssl_sources_freebsd-x86_64)'],
