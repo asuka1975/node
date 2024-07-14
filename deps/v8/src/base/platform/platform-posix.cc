@@ -54,6 +54,8 @@
 #if V8_OS_DARWIN
 #include <mach/mach.h>
 #include <malloc/malloc.h>
+#elif defined(__OpenBSD__)
+#include <sys/malloc.h>
 #else
 #include <malloc.h>
 #endif
