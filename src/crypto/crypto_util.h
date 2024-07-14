@@ -223,12 +223,7 @@ class ByteSource {
     Builder& operator=(const Builder&) = delete;
 
     ~Builder() { 
-#if defined(__OpenBSD__)
-      OPENSSL_cleanse
-#else
-      OPENSSL_clear_free
-#endif
-      (data_, size_); 
+      OPENSSL_clear_free(data_, size_); 
     }
 
     // Returns the underlying non-const pointer.

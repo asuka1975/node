@@ -499,6 +499,7 @@
           ['OS=="openbsd"', {
             'cflags': [ '-I/usr/local/include' ],
             'ldflags': [ '-Wl,-z,wxneeded' ],
+            'defines': [ 'OPENSSL_clear_free=CRYPTO_clear_free' ]
           }],
           ['_toolset=="host"', {
             'conditions': [
