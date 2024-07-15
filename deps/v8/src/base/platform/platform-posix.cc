@@ -94,9 +94,6 @@ extern int madvise(caddr_t, size_t, int);
 extern "C" void* __libc_stack_end;
 #endif
 
-#if defined(__OpenBSD__)
-#define pthread_getattr_np pthread_attr_get_np
-#endif
 
 namespace v8 {
 namespace base {
@@ -1329,6 +1326,16 @@ bool MainThreadIsCurrentThread() {
 
 // static
 Stack::StackSlot Stack::ObtainCurrentThreadStackStart() {
+#if defined(__OpenBSD__)
+  stack_t stack;
+  int error = pthread_stackseg_np(pthread_self(), &stack);
+  if(error) {
+    DCHECK(MainThreadIsCurrentThread());
+    return nullptr;
+  }
+  void* stack_start = reinterpret_cast<uint8_t*>(stack.ss_sp) + stack.ss_size;
+  return stack_start;
+#else
   pthread_attr_t attr;
   int error = pthread_getattr_np(pthread_self(), &attr);
   if (error) {
@@ -1358,6 +1365,7 @@ Stack::StackSlot Stack::ObtainCurrentThreadStackStart() {
   }
 #endif  // !defined(V8_LIBC_GLIBC)
   return stack_start;
+#endif
 }
 
 #endif  // !defined(V8_OS_FREEBSD) && !defined(V8_OS_DARWIN) &&
