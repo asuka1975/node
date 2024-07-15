@@ -242,11 +242,6 @@
         '-lkvm',
       ],
     }],
-    [ 'OS=="openbsd"', {
-      'defines!': [
-          'V8_HAS_MALLOC_USABLE_SIZE'
-      ]
-    }],
     [ 'OS in "aix os400"', {
       'defines': [
         '_LINUX_SOURCE_COMPAT',
