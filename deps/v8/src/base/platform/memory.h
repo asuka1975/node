@@ -19,6 +19,8 @@
 
 #if V8_OS_DARWIN
 #include <malloc/malloc.h>
+#elif defined(__OpenBSD__)
+#include <sys/malloc.h>
 #else  // !V8_OS_DARWIN
 #include <malloc.h>
 #endif  // !V8_OS_DARWIN
