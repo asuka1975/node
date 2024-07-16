@@ -528,7 +528,8 @@ static int sh_init(size_t size, size_t minsize)
     /* Now try to add guard pages and lock into memory. */
     ret = 1;
 
-#if !defined(_WIN32)
+#if defined(__OpenBSD__)
+#elif !defined(_WIN32)
     /* Starting guard is already aligned from mmap. */
     if (mprotect(sh.map_result, pgsize, PROT_NONE) < 0)
         ret = 2;
@@ -539,7 +540,8 @@ static int sh_init(size_t size, size_t minsize)
 
     /* Ending guard page - need to round up to page boundary */
     aligned = (pgsize + sh.arena_size + (pgsize - 1)) & ~(pgsize - 1);
-#if !defined(_WIN32)
+#if defined(__OpenBSD__)
+#elif !defined(_WIN32)
     if (mprotect(sh.map_result + aligned, pgsize, PROT_NONE) < 0)
         ret = 2;
 #else

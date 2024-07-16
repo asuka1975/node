@@ -486,7 +486,11 @@ bool OS::SetPermissions(void* address, size_t size, MemoryPermission access) {
   DCHECK_EQ(0, size % CommitPageSize());
 
   int prot = GetProtectionFromMemoryPermission(access);
+#if defined(__OpenBSD__)
+  int ret = 0;
+#else
   int ret = mprotect(address, size, prot);
+#endif
 
   // Setting permissions can fail if the limit of VMAs is exceeded.
   // Any failure that's not OOM likely indicates a bug in the caller (e.g.
