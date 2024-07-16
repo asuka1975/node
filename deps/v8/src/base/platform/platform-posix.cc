@@ -527,11 +527,13 @@ bool OS::SetPermissions(void* address, size_t size, MemoryPermission access) {
 void OS::SetDataReadOnly(void* address, size_t size) {
   CHECK_EQ(0, reinterpret_cast<uintptr_t>(address) % CommitPageSize());
   CHECK_EQ(0, size % CommitPageSize());
-
+#ifndef __OpenBSD__
+  // TODO: OpenBSD fails and an EPERM is thrown. Disabled once as no solution is found.
   if (mprotect(address, size, PROT_READ) != 0) {
     FATAL("Failed to protect data memory at %p +%zu; error %d\n", address, size,
           errno);
   }
+#endif
 }
 
 // static
