@@ -424,6 +424,7 @@ uint8_t* CodeRange::RemapEmbeddedBuiltins(Isolate* isolate,
     }
     RwxMemoryWriteScope rwx_write_scope(
         "Enable write access to copy the blob code into the code range");
+    std::printf("label1: %p\n", embedded_blob_code);
     memcpy(embedded_blob_code_copy, embedded_blob_code,
            embedded_blob_code_size);
   } else {
@@ -432,6 +433,7 @@ uint8_t* CodeRange::RemapEmbeddedBuiltins(Isolate* isolate,
       V8::FatalProcessOutOfMemory(isolate,
                                   "Re-embedded builtins: set permissions");
     }
+    std::printf("label2: %p\n", embedded_blob_code);
     memcpy(embedded_blob_code_copy, embedded_blob_code,
            embedded_blob_code_size);
 
