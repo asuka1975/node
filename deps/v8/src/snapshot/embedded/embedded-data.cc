@@ -154,8 +154,6 @@ void OffHeapInstructionStream::CreateOffHeapOffHeapInstructionStream(
   *code_size = d.code_size();
   *data = allocated_data_bytes;
   *data_size = d.data_size();
-  std::printf("embedded-data: code = %p\n", *code);
-  std::printf("embedded-data: code_size = %lu\n", *code_size);
 
   d.Dispose();
 }
