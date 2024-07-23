@@ -4245,6 +4245,9 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
     }
   }
 
+  printf("InitializeDefaultEmbeddedBlob: code = %p\n", code);
+  printf("InitializeDefaultEmbeddedBlob: code_size = %p\n", code_size);
+
   if (code_size == 0) {
     CHECK_EQ(0, data_size);
   } else {
