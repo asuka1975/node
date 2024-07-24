@@ -157,6 +157,10 @@ void EmbeddedFileWriter::WriteCodeSection(PlatformEmbeddedFileWriterBase* w,
   w->DeclareFunctionEnd(kCodeStartForProfilerSymbolName);
 #endif
 
+#if defined(__OpenBSD__)
+  w->SectionRoData();
+#endif
+
   w->AlignToCodeAlignment();
   w->DeclareSymbolGlobal(EmbeddedBlobCodeSymbol().c_str());
   w->DeclareLabel(EmbeddedBlobCodeSymbol().c_str());
