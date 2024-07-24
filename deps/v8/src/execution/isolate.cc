@@ -4246,8 +4246,6 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
     }
   }
 
-  printf("v8_Default_embedded_blob_code_: code = %p\n", v8_Default_embedded_blob_code_);
-  printf("v8_Default_embedded_blob_code_size_: code = %u\n", v8_Default_embedded_blob_code_size_);
   printf("InitializeDefaultEmbeddedBlob: code = %p\n", code);
   printf("InitializeDefaultEmbeddedBlob: code_size = %u\n", code_size);
 
