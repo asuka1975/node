@@ -4234,7 +4234,6 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
   uint32_t data_size = DefaultEmbeddedBlobDataSize();
 
   if (StickyEmbeddedBlobCode() != nullptr) {
-    printf("stickied\n");
     base::MutexGuard guard(current_embedded_blob_refcount_mutex_.Pointer());
     // Check again now that we hold the lock.
     if (StickyEmbeddedBlobCode() != nullptr) {
@@ -4247,7 +4246,7 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
   }
 
   printf("InitializeDefaultEmbeddedBlob: code = %p\n", code);
-  printf("InitializeDefaultEmbeddedBlob: code_size = %u\n", code_size);
+  printf("InitializeDefaultEmbeddedBlob: code_size = %p\n", code_size);
 
   if (code_size == 0) {
     CHECK_EQ(0, data_size);
