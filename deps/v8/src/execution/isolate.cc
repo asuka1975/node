@@ -307,6 +307,7 @@ bool Isolate::CurrentEmbeddedBlobIsBinaryEmbedded() {
 
 void Isolate::SetEmbeddedBlob(const uint8_t* code, uint32_t code_size,
                               const uint8_t* data, uint32_t data_size) {
+  std::printf("%p %lu\n", code, code_size);
   CHECK_NOT_NULL(code);
   CHECK_NOT_NULL(data);
 
@@ -4262,7 +4263,6 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
       std::fprintf(stderr, "mprotect error\n");
     }
     const uint8_t* executable_code = (uint8_t*)executable_code;
-    std::printf("%p %lu\n", executable_code, code_size_paged);
     SetEmbeddedBlob(executable_code, code_size, data, data_size);
 #else
     SetEmbeddedBlob(code, code_size, data, data_size);
