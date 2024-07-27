@@ -190,7 +190,7 @@ class EmbeddedFileWriter : public EmbeddedFileWriterInterface {
 #endif  // V8_OS_WIN64
 
 #if defined(__OpenBSD__)
-  std::vector<uint8_t> code_data;
+  mutable std::vector<uint8_t> code_data;
 #endif
 
   std::map<const char*, int> external_filenames_;
