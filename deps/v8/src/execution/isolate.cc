@@ -4257,7 +4257,7 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
     while(code_size_paged < code_size) {
       code_size_paged += 4096;
     }
-    void* executable_code_raw = malloc(code_size);
+    void* executable_code_raw = malloc(code_size_paged);
     if(mprotect(executable_code_raw, code_size_paged, PROT_READ | PROT_EXEC) < 0) {
       std::fprintf(stderr, "mprotect error\n");
     }
