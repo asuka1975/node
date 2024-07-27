@@ -4262,6 +4262,7 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
       std::fprintf(stderr, "mprotect error\n");
     }
     const uint8_t* executable_code = (uint8_t*)executable_code;
+    std::printf("%p %lu\n", executable_code, code_size_paged);
     SetEmbeddedBlob(executable_code, code_size, data, data_size);
 #else
     SetEmbeddedBlob(code, code_size, data, data_size);
