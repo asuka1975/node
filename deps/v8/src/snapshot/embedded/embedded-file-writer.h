@@ -189,10 +189,6 @@ class EmbeddedFileWriter : public EmbeddedFileWriterInterface {
   win64_unwindinfo::BuiltinUnwindInfo unwind_infos_[Builtins::kBuiltinCount];
 #endif  // V8_OS_WIN64
 
-#if defined(__OpenBSD__)
-  mutable std::vector<uint8_t> code_data;
-#endif
-
   std::map<const char*, int> external_filenames_;
   std::vector<const char*> external_filenames_by_index_;
 

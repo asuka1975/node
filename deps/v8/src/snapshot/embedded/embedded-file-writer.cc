@@ -118,9 +118,6 @@ void EmbeddedFileWriter::WriteBuiltin(PlatformEmbeddedFileWriterBase* w,
     }
     next_offset = std::min(next_source_pos_offset, next_label_offset);
     WriteBinaryContentsAsInlineAssembly(w, data + i, next_offset - i);
-#if defined(__OpenBSD__)
-    code_data.insert(code_data.end(), data + i, data + next_offset);
-#endif
     i = next_offset;
   }
 
@@ -141,7 +138,11 @@ void EmbeddedFileWriter::WriteCodeSection(PlatformEmbeddedFileWriterBase* w,
   w->Comment(
       "The embedded blob code section starts here. It contains the builtin");
   w->Comment("instruction streams.");
+#if defined(__OpenBSD__)
+  w->SectionRoData();
+#else
   w->SectionText();
+#endif
 
 #if V8_TARGET_ARCH_IA32 || V8_TARGET_ARCH_X64
   // UMA needs an exposed function-type label at the start of the embedded
@@ -159,11 +160,10 @@ void EmbeddedFileWriter::WriteCodeSection(PlatformEmbeddedFileWriterBase* w,
   w->Newline();
   w->DeclareFunctionEnd(kCodeStartForProfilerSymbolName);
 #endif
-#if !defined(__OpenBSD__)
+
   w->AlignToCodeAlignment();
   w->DeclareSymbolGlobal(EmbeddedBlobCodeSymbol().c_str());
   w->DeclareLabel(EmbeddedBlobCodeSymbol().c_str());
-#endif
 
   static_assert(Builtins::kAllBuiltinsAreIsolateIndependent);
   for (ReorderedBuiltinIndex embedded_index = 0;
@@ -173,18 +173,6 @@ void EmbeddedFileWriter::WriteCodeSection(PlatformEmbeddedFileWriterBase* w,
   }
   w->AlignToPageSizeIfNeeded();
   w->Newline();
-
-#if defined(__OpenBSD__)
-  w->SectionRoData();
-  w->AlignToCodeAlignment();
-  w->DeclareSymbolGlobal(EmbeddedBlobCodeSymbol().c_str());
-  w->DeclareLabel(EmbeddedBlobCodeSymbol().c_str());
-
-  WriteBinaryContentsAsInlineAssembly(w, code_data.data(), code_data.size());
-  code_data.clear();
-
-  w->Newline();
-#endif
 }
 
 void EmbeddedFileWriter::WriteFileEpilogue(PlatformEmbeddedFileWriterBase* w,
