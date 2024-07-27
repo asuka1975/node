@@ -180,7 +180,7 @@ void EmbeddedFileWriter::WriteCodeSection(PlatformEmbeddedFileWriterBase* w,
   w->DeclareSymbolGlobal(EmbeddedBlobCodeSymbol().c_str());
   w->DeclareLabel(EmbeddedBlobCodeSymbol().c_str());
 
-  w->WriteBinaryContentsAsInlineAssembly(w, code_data.data(), code_data.size());
+  WriteBinaryContentsAsInlineAssembly(w, code_data.data(), code_data.size());
   code_data.clear();
 
   w->Newline();
