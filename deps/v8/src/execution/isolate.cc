@@ -308,6 +308,7 @@ bool Isolate::CurrentEmbeddedBlobIsBinaryEmbedded() {
 void Isolate::SetEmbeddedBlob(const uint8_t* code, uint32_t code_size,
                               const uint8_t* data, uint32_t data_size) {
   std::printf("%p %lu\n", code, code_size);
+  std::fflush(stdout);
   CHECK_NOT_NULL(code);
   CHECK_NOT_NULL(data);
 
