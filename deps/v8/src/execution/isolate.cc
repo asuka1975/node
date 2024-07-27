@@ -4250,7 +4250,7 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
   } else {
 #if defined(__OpenBSD__)
     const char* executable_code = (char*)malloc(code_size);
-    OS::SetPermissions(executable_code, code_size, OS::MemoryPermission::kReadExec);
+    base::OS::SetPermissions(executable_code, code_size, base::OS::MemoryPermission::kReadExec);
     SetEmbeddedBlob(executable_code, code_size, data, data_size);
 #else
     SetEmbeddedBlob(code, code_size, data, data_size);
