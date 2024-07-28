@@ -499,7 +499,8 @@
           }],
           ['OS=="openbsd"', {
             'cflags': [ '-I/usr/local/include' ],
-            'ldflags': [ '-Wl,-z,wxneeded' ],
+            'ldflags': [ '-Wl,-z,wxneeded', '-Xlinker --no-execute-only' ],
+            'defines': [ 'OPENSSL_NO_DEVCRYPTOENG' ],
           }],
           ['_toolset=="host"', {
             'conditions': [
