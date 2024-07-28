@@ -149,10 +149,6 @@
 #include "src/diagnostics/unwinding-info-win64.h"
 #endif  // V8_OS_WIN64
 
-#if defined(__OpenBSD__)
-#include <sys/mman.h>
-#endif
-
 #if USE_SIMULATOR
 #include "src/execution/simulator-base.h"
 #endif
@@ -4252,20 +4248,7 @@ void Isolate::InitializeDefaultEmbeddedBlob() {
   if (code_size == 0) {
     CHECK_EQ(0, data_size);
   } else {
-#if defined(__OpenBSD__)
-    std::size_t code_size_paged = 0;
-    while(code_size_paged < code_size) {
-      code_size_paged += 4096;
-    }
-    void* executable_code_raw = malloc(code_size_paged);
-    if(mprotect(executable_code_raw, code_size_paged, PROT_READ | PROT_EXEC) < 0) {
-      std::fprintf(stderr, "mprotect error\n");
-    }
-    const uint8_t* executable_code = (uint8_t*)executable_code_raw;
-    SetEmbeddedBlob(executable_code, code_size, data, data_size);
-#else
     SetEmbeddedBlob(code, code_size, data, data_size);
-#endif
   }
 }
 

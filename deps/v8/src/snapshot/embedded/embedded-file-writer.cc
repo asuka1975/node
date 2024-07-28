@@ -138,11 +138,7 @@ void EmbeddedFileWriter::WriteCodeSection(PlatformEmbeddedFileWriterBase* w,
   w->Comment(
       "The embedded blob code section starts here. It contains the builtin");
   w->Comment("instruction streams.");
-#if defined(__OpenBSD__)
-  w->SectionRoData();
-#else
   w->SectionText();
-#endif
 
 #if V8_TARGET_ARCH_IA32 || V8_TARGET_ARCH_X64
   // UMA needs an exposed function-type label at the start of the embedded
