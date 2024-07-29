@@ -131,7 +131,7 @@ void IteratePointersInStack(StackVisitor* visitor, const void* top,
        current < start; ++current) {
     // MSAN: Instead of unpoisoning the whole stack, the slot's value is copied
     // into a local which is unpoisoned.
-    std::printf("%p\n", current);
+    std::printf("%p, %p\n", current, start);
     const void* address = *current;
     std::printf("*%p\n", address);
     std::fflush(stdout);
