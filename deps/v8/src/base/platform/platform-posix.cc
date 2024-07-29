@@ -1333,6 +1333,7 @@ Stack::StackSlot Stack::ObtainCurrentThreadStackStart() {
     return nullptr;
   }
   void* stack_start = reinterpret_cast<uint8_t*>(stack.ss_sp) + stack.ss_size;
+  std::printf("stack_size: %u\n", stack.ss_size);
   return stack_start;
 #else
   pthread_attr_t attr;
