@@ -1332,8 +1332,7 @@ Stack::StackSlot Stack::ObtainCurrentThreadStackStart() {
     DCHECK(MainThreadIsCurrentThread());
     return nullptr;
   }
-  void* stack_start = reinterpret_cast<uint8_t*>(stack.ss_sp) + stack.ss_size;
-  return stack_start;
+  return reinterpret_cast<uint8_t*>(stack.ss_sp);
 #else
   pthread_attr_t attr;
   int error = pthread_getattr_np(pthread_self(), &attr);
