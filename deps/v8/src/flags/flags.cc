@@ -31,10 +31,16 @@
 #include "src/wasm/wasm-limits.h"
 #endif  // V8_ENABLE_WEBASSEMBLY
 
+#ifdef __OpenBSD__
+#define OPENBSD_MUTABLE_SECTION __attribute__((section(".openbsd.mutable")))
+#else
+#define OPENBSD_MUTABLE_SECTION 
+#endif
+
 namespace v8::internal {
 
 // Define {v8_flags}, declared in flags.h.
-FlagValues v8_flags;
+FlagValues v8_flags OPENBSD_MUTABLE_SECTION;
 
 // {v8_flags} needs to be aligned to a memory page, and the size needs to be a
 // multiple of a page size. This is required for memory-protection of the memory

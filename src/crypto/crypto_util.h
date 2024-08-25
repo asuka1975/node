@@ -222,7 +222,9 @@ class ByteSource {
     Builder(const Builder&) = delete;
     Builder& operator=(const Builder&) = delete;
 
-    ~Builder() { OPENSSL_clear_free(data_, size_); }
+    ~Builder() { 
+      OPENSSL_clear_free(data_, size_); 
+    }
 
     // Returns the underlying non-const pointer.
     template <typename T>
